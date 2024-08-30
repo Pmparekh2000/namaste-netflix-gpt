@@ -5,6 +5,7 @@
 - Header
 - Login Form
 - Sign Up Form
+- Validations in forms
 
 # Features
 
