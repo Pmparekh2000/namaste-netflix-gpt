@@ -1,5 +1,9 @@
 # Netflix GPT
 
+- To build: npm run build
+- To deploy to firebase: firebase deploy
+- Application accessible at: https://netflixgpt-aaa91.web.app
+
 - Create React App
 - Configured TailwindCSS
 - Header
