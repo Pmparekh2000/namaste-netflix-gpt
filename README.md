@@ -22,6 +22,9 @@
 - Validations
 - Added photo and name
 - Created redux store with user slices
+- BugFix: Sign Up user displayName and profile picture update
+- BugFix: If the user is not logged in Redirect /browse to Login Page and vice-versa.
+- Unsubscribe to the onAuthStatChanged callback.
 
 # Features
 
