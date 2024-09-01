@@ -25,6 +25,16 @@
 - BugFix: Sign Up user displayName and profile picture update
 - BugFix: If the user is not logged in Redirect /browse to Login Page and vice-versa.
 - Unsubscribe to the onAuthStatChanged callback.
+- Register TMDB API and create an app and get an access token.
+- Get data from TMDB now playing movies list API.
+- Custom Hook for Now playing movies.
+- Create a movieSlice.
+- Update store with movies data.
+- Planning for MainContainer and SecondaryContainer
+- Custom Hook for fetching the trailer video.
+- Update store with trailer video data
+- Embedded the youtube video and make it to be autoplay and mute.
+- Added tailwind CSS classes to make Main Container look awesome.
 
 # Features
 
