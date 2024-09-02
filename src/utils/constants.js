@@ -5,8 +5,14 @@ export const USER_AVATAR =
 export const TMDB_API_KEY = "8e43f38437ce65d7cf142a2117c5bb45";
 export const TMDB_API_READ_ACCESS_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZTQzZjM4NDM3Y2U2NWQ3Y2YxNDJhMjExN2M1YmI0NSIsIm5iZiI6MTcyNTE3MjM3MC4xNTcxNzksInN1YiI6IjY2ZDQwOWNlZWE1Mzg2NDFhZWMwZjIzYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.M6V0cvi6kXBcgxn-m6kyt13f4e9Nj9bFyxZ5vLfu48U";
+
 export const NOW_PLAYING_MOVIES =
   "https://api.themoviedb.org/3/movie/now_playing?page=1";
+export const POPULAR_MOVIES =
+  "https://api.themoviedb.org/3/movie/popular?page=1";
+export const TOP_RATED_MOVIES = "https://api.themoviedb.org/3/movie/top_rated";
+export const UPCOMING_MOVIES = "https://api.themoviedb.org/3/movie/upcoming";
+
 export const GET_VIDEOS = "https://api.themoviedb.org/3/movie/";
 export const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/";
 export const API_OPTIONS = {
