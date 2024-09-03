@@ -44,6 +44,8 @@
 - GPT Search page
 - GPT search bar
 - (BONUS) Added multi language feature in our app
+- Calling OpenAI api to fetch data regarding user prompts.
+- Calling TMDB movie specific API to fetch movie data.
 
 # Features
 
