@@ -1,0 +1,40 @@
+const language = {
+  en: {
+    search: "Search",
+    gptSearchPlaceholder: "What would you like to watch today",
+    welcome: "Welcome",
+    gptSearch: "GPT Search",
+    homePage: "Home Page",
+    signIn: "Sign In",
+    signUp: "Sign Up",
+    signOut: "Sign Out",
+    newUserMessage: "New to Netflix? Sign Up Now",
+    existingUserMessage: "Already a user? Sign In Now",
+  },
+  hindi: {
+    search: "खोज",
+    gptSearchPlaceholder: "आज आप क्या देखना चाहेंगे?",
+    welcome: "स्वागत",
+    gptSearch: "जीपीटी खोज",
+    homePage: "होम पेज",
+    signIn: "दाखिल करना",
+    signUp: "साइन अप करें",
+    signOut: "साइन आउट",
+    newUserMessage: "नेटफ्लिक्स पर नए हैं? अभी साइन अप करें",
+    existingUserMessage: "पहले से उपयोगकर्ता हैं? अभी साइन इन करें",
+  },
+  spanish: {
+    search: "buscar",
+    gptSearchPlaceholder: "¿Qué te gustaría ver hoy?",
+    welcome: "bienvenida",
+    gptSearch: "Búsqueda GPT",
+    homePage: "Página de inicio",
+    signIn: "Iniciar sesión",
+    signUp: "Inscribirse",
+    signOut: "Desconectar",
+    newUserMessage: "¿Eres nuevo en Netflix? Regístrate ahora",
+    existingUserMessage: "¿Ya eres usuario? Iniciar sesión Now",
+  },
+};
+
+export default language;

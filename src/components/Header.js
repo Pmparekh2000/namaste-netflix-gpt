@@ -4,11 +4,18 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
+import { LOGO, SPACE, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { toogleGptSearchView } from "../utils/gptSlice";
+import { updatePreferredLanguage } from "../utils/appSlice";
+import language from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const preferredLanguage = useSelector(
+    (store) => store.app?.preferredLanguage
+  );
+  const showGpt = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +36,10 @@ const Header = () => {
     };
   }, []);
 
+  const handleGptSearchClick = () => {
+    dispatch(toogleGptSearchView());
+  };
+
   const handleSignOutUser = () => {
     signOut(auth)
       .then(() => {})
@@ -41,12 +52,38 @@ const Header = () => {
       <img className="w-48" src={LOGO} alt="logo" />
       {user && (
         <div className="flex p-2">
+          {showGpt && (
+            <select
+              onChange={(event) => {
+                dispatch(updatePreferredLanguage(event.target.value));
+              }}
+              className="p-2 m-2 bg-gray-900 text-white"
+            >
+              {SUPPORTED_LANGUAGES.map((language) => {
+                return (
+                  <option key={language.identifier} value={language.identifier}>
+                    {language.name}
+                  </option>
+                );
+              })}
+            </select>
+          )}
           <p className="mx-5 my-3 font-bold text-white">
-            Welcome {user.displayName}
+            {language[preferredLanguage].welcome}
+            {SPACE}
+            {user.displayName}
           </p>
+          <button
+            className="py-2 px-4 m-2 bg-purple-800 text-white rounded-lg mx-4 my-2"
+            onClick={handleGptSearchClick}
+          >
+            {showGpt
+              ? language[preferredLanguage].homePage
+              : language[preferredLanguage].gptSearch}
+          </button>
           <img className="w-12 h-12 mx-5" alt="usericon" src={user.photoURL} />
           <button className="font-bold text-white" onClick={handleSignOutUser}>
-            Sign Out
+            {language[preferredLanguage].signOut}
           </button>
         </div>
       )}

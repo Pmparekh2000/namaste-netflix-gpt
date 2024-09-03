@@ -8,11 +8,22 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import {
+  ALREADY_USER_MESSAGE,
+  BACKGROUND_PICTURE_URL,
+  NEW_USER_MESSAGE,
+  SIGN_IN,
+  SIGN_UP,
+  USER_AVATAR,
+} from "../utils/constants";
+import language from "../utils/languageConstants";
 
 const Login = () => {
+  const preferredLanguage = useSelector(
+    (store) => store.app?.preferredLanguage
+  );
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -85,14 +96,16 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/81bdc063-cb8f-4afe-8a02-a3131ca4ef5e/IN-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_7998f3b6-63e3-424a-8328-550cf777ddce_large.jpg" />
+        <img src={BACKGROUND_PICTURE_URL} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="w-3/12 absolute p-12 bg-black my-14 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm
+            ? language[preferredLanguage].signIn
+            : language[preferredLanguage].signUp}
         </h1>
         {!isSignInForm && (
           <input
@@ -119,12 +132,14 @@ const Login = () => {
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm
+            ? language[preferredLanguage].signIn
+            : language[preferredLanguage].signUp}
         </button>
         <p className="py-4 hover:cursor-pointer" onClick={toggleSignInForm}>
           {isSignInForm
-            ? "New to Netflix? Sign Up Now"
-            : "Already a user? Sign In Now"}
+            ? language[preferredLanguage].newUserMessage
+            : language[preferredLanguage].existingUserMessage}
         </p>
       </form>
     </div>
