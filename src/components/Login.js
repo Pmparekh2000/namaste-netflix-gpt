@@ -52,7 +52,6 @@ const Login = () => {
       )
         .then((userCredentials) => {
           // Signed Up
-          console.log("Signed Up user is", userCredentials.user);
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
             photoURL: USER_AVATAR,
@@ -96,13 +95,17 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BACKGROUND_PICTURE_URL} alt="logo" />
+        <img
+          src={BACKGROUND_PICTURE_URL}
+          alt="logo"
+          className="h-screen object-cover"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 absolute p-12 bg-black my-14 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-3/12 absolute p-12 bg-black my-14 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-xl md:text-3xl py-4">
           {isSignInForm
             ? language[preferredLanguage].signIn
             : language[preferredLanguage].signUp}

@@ -48,10 +48,10 @@ const Header = () => {
       });
   };
   return (
-    <div className="flex justify-between absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10">
-      <img className="w-48" src={LOGO} alt="logo" />
+    <div className="flex flex-col justify-between absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 bg-black sm:bg-blue-900 md:bg-green-900 md:flex-row">
+      <img className="w-48 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 justify-between">
           {showGpt && (
             <select
               onChange={(event) => {
@@ -81,7 +81,11 @@ const Header = () => {
               ? language[preferredLanguage].homePage
               : language[preferredLanguage].gptSearch}
           </button>
-          <img className="w-12 h-12 mx-5" alt="usericon" src={user.photoURL} />
+          <img
+            className="w-12 h-12 mx-5 hidden md:block"
+            alt="usericon"
+            src={user.photoURL}
+          />
           <button className="font-bold text-white" onClick={handleSignOutUser}>
             {language[preferredLanguage].signOut}
           </button>
